@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script type="text/javascript" src="vendors/angular.js"></script>
+    <script type="text/javascript" src="vendors/angular-route.min.js"></script>
+    <script type="text/javascript" src="scripts/client.js"></script>
+    <title>MessageBoardCodeChallenge</title>
+</head>
+<body ng-app="myApp">
+    <h2>Message Board</h2>
+    <h4>A place for messages!</h4>
+    <div class="container" ng-controller="MessageController as m">
+        <form ng-submit="m.newMessage(m.newM)">
+            Your Name: <input type="text" ng-model="m.newM.username" id="userName" placeholder="Enter your name"><br>
+            Your Message: <input type="text" ng-model="m.newM.message" id="userMessage" placeholder="Enter your message">
+            <button type="submit" >Submit</button>
+        </form>
+
+        <div class="messages" ng-repeat="message in m.message">
+            <ul>
+                <li>User's Name: {{message.username}}</li>
+                <li>{{message.username}} wants to say: {{message.message}}</li>
+               <small> Your Name: <input type="text" ng-model="m.newM.username" id="userName" placeholder="Enter your name"><br>
+                Your Message: <input type="text" ng-model="m.newM.message" id="userMessage" placeholder="Enter your message">
+               
+                <button type="submit" ng-click="m.newReply(m.newR)">Reply To Message</button></small>
+            </ul>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
