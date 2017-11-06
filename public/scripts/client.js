@@ -26,10 +26,14 @@ vm.getMessages = function(){
 }
 vm.getMessages();
 
+    
+    //my attempt at using angular.copy() to prevent username from populating in all username fields
 vm.newReply = function(newR){
-console.log('test');    
-angular.copy(newR);
-}
+console.log('test');  
+console.log(newR.username);
+var replyName = newR.username;
+var replyCopy = angular.copy(replyName);
 
+}
 
 });
